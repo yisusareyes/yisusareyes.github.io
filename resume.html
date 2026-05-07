@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Jesus Acosta Reyes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --text-main: #333;
+            --text-light: #777;
+            --border-color: #e0e0e0;
+            --accent-line: #222;
+            --bg-body: #fcfcfc;
+            --bg-cv: #fff;
+        }
+
+        /* Variables para Modo Oscuro */
+        [data-theme="dark"] {
+            --text-main: #e0e0e0;
+            --text-light: #aaa;
+            --border-color: #444;
+            --accent-line: #fff;
+            --bg-body: #121212;
+            --bg-cv: #1e1e1e;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.5;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .print-btn, .theme-btn {
+            padding: 10px 20px;
+            background-color: var(--accent-line);
+            color: var(--bg-cv);
+            border: 1px solid var(--accent-line);
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: inherit;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 11px;
+            transition: all 0.2s;
+        }
+
+        .print-btn:hover, .theme-btn:hover {
+            opacity: 0.8;
+        }
+
+        .cv-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-cv);
+            padding: 50px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: clamp(24px, 5vw, 32px);
+            margin: 0;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 8px 0;
+            font-weight: 500;
+        }
+
+        .tagline {
+            font-size: 12px;
+            color: #aaa;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            border-top: 1px solid var(--accent-line);
+            border-bottom: 1px solid var(--accent-line);
+            padding: 12px 0;
+            font-size: 11px;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item i {
+            margin-right: 6px;
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        section {
+            margin-top: 35px;
+        }
+
+        h2 {
+            font-size: 14px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        p {
+            font-size: 12.5px;
+            margin: 10px 0;
+            color: var(--text-main);
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .job-entry {
+            margin-bottom: 20px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .job-meta {
+            font-size: 11px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            display: inline-block;
+        }
+
+        .job-desc {
+            font-size: 12px;
+            color: var(--text-main);
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+
+        .columns {
+            display: flex;
+            gap: 50px;
+        }
+
+        .left-col { flex: 1.2; }
+        .right-col { flex: 1; }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            font-size: 12px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            font-weight: 300;
+        }
+
+        li::before {
+            content: "\f00c"; 
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            font-size: 10px;
+            margin-right: 12px;
+            color: var(--text-light);
+        }
+
+        .bold { font-weight: 600; color: var(--accent-line); }
+        
+        .footer-line {
+            margin-top: 40px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* RESPONSIVIDAD PARA MÓVIL Y TABLETA */
+        @media (max-width: 768px) {
+            .cv-container {
+                padding: 30px 20px;
+            }
+            .columns {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+        }
+
+        /* CONFIGURACIÓN MAESTRA PARA IMPRESIÓN A4 */
+        @media print {
+            @page {
+                size: A4;
+                margin: 0.5cm;
+            }
+            
+            body { 
+                background: white !important; 
+                padding: 0 !important; 
+                margin: 0 !important;
+                color: black !important;
+            }
+
+            .controls { display: none !important; }
+
+            .cv-container {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0px 5px !important;
+                margin: 0 !important;
+                box-shadow: none !important;
+                background: white !important;
+                transform: scale(0.99);
+                transform-origin: top center;
+            }
+
+            section { margin-top: 10px !important; }
+            h2 { border-bottom: 1px solid #000 !important; }
+            .bold { color: black !important; }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="controls">
+    <button class="print-btn" onclick="window.print()">Imprimir CV</button>
+    <button class="theme-btn" onclick="toggleTheme()">Modo Oscuro / Claro</button>
+</div>
+
+<div class="cv-container">
+    <header>
+        <h1>Jesus Acosta Reyes</h1>
+        <div class="subtitle">Generalista de Recursos Humanos</div>
+        <div class="tagline">Experiencia en Operaciones, Atención al Cliente y Administración</div>
+        
+        <div class="contact-info">
+            <span class="contact-item"><i class="fa-solid fa-location-dot"></i> CDMX, México</span>
+            <span class="contact-item"><i class="fa-regular fa-envelope"></i> jesusareyes.jobs@gmail.com</span>
+            <span class="contact-item"><i class="fa-solid fa-phone"></i> 56 4369-8629</span>
+        </div>
+    </header>
+
+    <section>
+        <h2>Acerca de Mí</h2>
+        <p>Generalista de Recursos Humanos con más de 5 años de experiencia en funciones de RH, actualmente en activo, con enfoque en beneficios, compensaciones, nómina, desempeño, relaciones laborales y soporte a personal sindicalizado.</p>
+        <p>Experiencia complementaria en atención al cliente, call center, retención y soporte multicanal, así como en áreas administrativas y manejo de caja. He liderado equipos de trabajo, destacando por mi organización, comunicación efectiva y orientación a resultados.</p>
+        <p>Profesional enfocado, discreto y orientado al cumplimiento de objetivos, con capacidad de aprendizaje rápido y adaptación a entornos dinámicos. Busco continuar mi desarrollo aportando valor en la gestión del talento y mejora de procesos.</p>
+    </section>
+
+    <section>
+        <h2>Experiencia Laboral</h2>
+        
+        <div class="job-entry">
+            <div class="job-title">Analista de RH – Contact Center <span class="job-meta">HSBC/EDPM | Ene 2021 – Actualidad</span></div>
+            <div class="job-desc">Atención a colaboradores en temas de nómina, vacaciones, aclaraciones y procesos de RH. Apoyo en capacitación, reclutamiento y soporte multicanal.</div>
+        </div>
+
+        <div class="job-entry">
+            <div class="job-title">Atención a Clientes – Call Center <span class="job-meta">Luuna | Oct 2020 – Ene 2021</span></div>
+            <div class="job-desc">Gestión de aclaraciones, devoluciones, cargos no reconocidos, quejas y prevención de fraudes en canales digitales y telefónicos.</div>
+        </div>
+
+        <div class="job-entry">
+            <div class="job-title">Freelance – Soporte y Marketing Digital <span class="job-meta">Dataplor | Abr 2018 – Feb 2020</span></div>
+            <div class="job-desc">Captura y análisis de información, soporte a plataformas web y atención a clientes digitales.</div>
+        </div>
+
+        <div class="job-entry">
+            <div class="job-title">Analista de Aclaraciones – Call Center <span class="job-meta">EB Media Busolinea | Feb 2016 – Mar 2018</span></div>
+            <div class="job-desc">Atención a clientes, aclaraciones, devoluciones, prevención de fraudes y seguimiento a quejas.</div>
+        </div>
+
+        <div class="job-entry">
+            <div class="job-title">Ejecutivo de Banca Telefónica <span class="job-meta">Santander | May 2013 – Dic 2015</span></div>
+            <div class="job-desc">Atención a clientes en productos financieros: cuentas, tarjetas, créditos, transferencias y soporte bancario.</div>
+        </div>
+
+        <p><span class="bold">Experiencia previa (resumida):</span> Ejecutivo de Telemarketing <span class="bold">Plásticos GYT</span>, Supervisor de Call Center en atención a clientes y soporte <span class="bold">SKY</span>, Supervisor de atención en <span class="bold">Cinepolis</span>, Auxiliar administrativo en <span class="bold">Walmart</span>, y apoyo administrativo en <span class="bold">Sistema de Transporte Colectivo Metro</span>.</p>
+    </section>
+
+    <div class="columns">
+        <div class="left-col">
+            <section>
+                <h2>Formación Académica</h2>
+                <p><span class="bold">Profesional Técnico en Servicios Bancarios</span> – CONALEP, CDMX<br>
+                Cédula profesional</p>
+                <p><span class="bold">Formación complementaria</span><br>
+                <span class="job-meta">(Secretaría de Educación Pública – Capacítate para el Empleo, 2016):</span></p>
+                <p>Técnico en Sistemas Informáticos<br>
+                Técnico en Integridad Web</p>
+            </section>
+        </div>
+        <div class="right-col">
+            <section>
+                <h2>Habilidades</h2>
+                <ul>
+                    <li>Compromiso y responsabilidad</li>
+                    <li>Empatía y orientación al servicio</li>
+                    <li>Trabajo en equipo</li>
+                    <li>Disciplina y organización</li>
+                    <li>Resolución de problemas</li>
+                    <li>Comunicación efectiva</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <section>
+        <h2>Herramientas y cursos</h2>
+        <p>Atención a clientes, call center y procesos administrativos. Manejo de CRM y plataformas de soporte como <span class="bold">Salesforce, Zendesk</span> y <span class="bold">Siebel</span>. Uso de sistemas de telefonía y contact center como <span class="bold">Avaya, Cisco, Aircall</span> y <span class="bold">Media Bar</span>.</p>
+    </section>
+
+    <section class="footer-line">
+        <h2>Intereses y Hobbies</h2>
+        <p>Interés por el <span class="bold">cine</span> y la <span class="bold">música</span> como expresión creativa, el <span class="bold">ciclismo</span> como actividad de disciplina, la <span class="bold">fotografía</span> como forma de expresión visual y los <span class="bold">viajes</span> como aprendizaje cultural.</p>
+    </section>
+</div>
+
+<script>
+    function toggleTheme() {
+        const body = document.documentElement;
+        const currentTheme = body.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'light');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+        }
+    }
+    
+    // Detectar preferencia del sistema inicialmente
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+</script>
+
+</body>
+</html>
